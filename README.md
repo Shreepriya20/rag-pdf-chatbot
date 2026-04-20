@@ -61,7 +61,9 @@ Final Answer (Grounded Response)
 ---
 ## 🎥 Demo
 
-[![Watch Demo](https://drive.google.com/file/d/1_Kr5KHqJtXi8u2fcXL2VUxxb7LvyA38y/view?usp=sharing)
+
+
+[Watch Demo Video](https://drive.google.com/file/d/1_Kr5KHqJtXi8u2fcXL2VUxxb7LvyA38y/view?usp=sharing)
 
 ## 🧠 Key Highlights
 
