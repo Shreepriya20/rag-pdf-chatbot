@@ -76,29 +76,28 @@ Final Answer (Grounded Response)
 ---
 
 ## ⚙️ Architecture
-## ⚙️ Architecture
 
 ```mermaid
 flowchart TD
 
-subgraph Ingestion Pipeline
+subgraph Ingestion_Pipeline
 A[Upload PDF] --> B[Extract Text]
 B --> C[Chunk Text]
 C --> D[Create Embeddings]
 D --> E[Store in FAISS]
 end
 
-subgraph Query Pipeline
+subgraph Query_Pipeline
 F[User Question] --> G[Query Embedding]
-G --> H[Search FAISS (Top-K)]
+G --> H[Search FAISS Top K]
 H --> I[Retrieve Context]
-I --> J[Prompt + Context]
-J --> K[LLM (Mistral)]
-K --> L[Answer]
+I --> J[Build Prompt]
+J --> K[LLM Mistral via Ollama]
+K --> L[Generate Answer]
 end
 
 E --> H
-L --> M[Display in UI]
+L --> M[Display in Gradio UI]
 ```
 ## 🧱 Project Structure
 
