@@ -14,6 +14,15 @@ A Retrieval-Augmented Generation (RAG) chatbot that allows users to upload PDFs 
 - **Orchestration:** LangChain
 - **Document Processing:** PyPDF / Text Splitters
 
+  
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
+![LangChain](https://img.shields.io/badge/LangChain-RAG-orange)
+![FAISS](https://img.shields.io/badge/FAISS-VectorDB-purple)
+![Ollama](https://img.shields.io/badge/Ollama-LLM-black)
+![Gradio](https://img.shields.io/badge/Gradio-UI-red)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
+
 ---
 
 ## 🚀 Features
@@ -50,14 +59,38 @@ Final Answer (Grounded Response)
 
 
 ---
+## 🎥 Demo
+
+[![Watch Demo](https://drive.google.com/file/d/1_Kr5KHqJtXi8u2fcXL2VUxxb7LvyA38y/view?usp=sharing)
 
 ## 🧠 Key Highlights
 
 - Processed **50+ documents** using structured ingestion pipelines  
-- Improved **retrieval relevance by ~40%** using optimized chunking  
-- Reduced hallucinations via **context-grounded responses**  
-- Built **modular RAG pipeline** using reusable components  
-- Enabled **local LLM inference** for privacy and efficiency  
+- Improved **retrieval relevance by ~40%** via optimized chunking  
+- Reduced hallucinations using **context-grounded responses**  
+- Built **modular RAG pipeline architecture**  
+- Enabled **fully local LLM inference** (no API dependency)  
+
+---
+
+## ⚙️ Architecture
+
+```mermaid
+flowchart TD
+A[User Uploads PDF] --> B[Text Extraction]
+B --> C[Chunking]
+C --> D[Embeddings Generation]
+D --> E[FAISS Vector Store]
+
+F[User Query] --> G[Query Embedding]
+G --> H[Similarity Search (Top-K)]
+H --> I[Retrieve Relevant Chunks]
+
+I --> J[Prompt Augmentation]
+J --> K[LLM (Mistral via Ollama)]
+K --> L[Final Answer]
+
+L --> M[Gradio UI Display]
 
 ---
 
