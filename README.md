@@ -76,6 +76,9 @@ Final Answer (Grounded Response)
 ---
 
 ## ⚙️ Architecture
+## ⚙️ Architecture
+
+```mermaid
 flowchart TD
 
 subgraph Ingestion Pipeline
@@ -96,15 +99,16 @@ end
 
 E --> H
 L --> M[Display in UI]
-
+```
 ## 🧱 Project Structure
+
+
+```
 app/
-│── api.py # FastAPI routes (/upload, /ask)
-│── ui.py # Gradio frontend (chat + upload UI)
-│── rag_pipeline.py # Core RAG logic (chunking, embeddings, retrieval, LLM)
-
-
----
+│── api.py            # FastAPI routes (/upload, /ask)
+│── ui.py             # Gradio frontend (chat + upload UI)
+│── rag_pipeline.py   # Core RAG logic (chunking, embeddings, retrieval, LLM)
+```
 
 ## ▶️ How to Run
 
