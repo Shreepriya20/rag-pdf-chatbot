@@ -76,25 +76,26 @@ Final Answer (Grounded Response)
 ---
 
 ## ⚙️ Architecture
-
-```mermaid
 flowchart TD
-A[User Uploads PDF] --> B[Text Extraction]
-B --> C[Chunking]
-C --> D[Embeddings Generation]
-D --> E[FAISS Vector Store]
 
-F[User Query] --> G[Query Embedding]
-G --> H[Similarity Search (Top-K)]
-H --> I[Retrieve Relevant Chunks]
+subgraph Ingestion Pipeline
+A[Upload PDF] --> B[Extract Text]
+B --> C[Chunk Text]
+C --> D[Create Embeddings]
+D --> E[Store in FAISS]
+end
 
-I --> J[Prompt Augmentation]
-J --> K[LLM (Mistral via Ollama)]
-K --> L[Final Answer]
+subgraph Query Pipeline
+F[User Question] --> G[Query Embedding]
+G --> H[Search FAISS (Top-K)]
+H --> I[Retrieve Context]
+I --> J[Prompt + Context]
+J --> K[LLM (Mistral)]
+K --> L[Answer]
+end
 
-L --> M[Gradio UI Display]
-
----
+E --> H
+L --> M[Display in UI]
 
 ## 🧱 Project Structure
 app/
